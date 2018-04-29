@@ -1,4 +1,3 @@
-package com.revature.eval.java.core;
 
 import java.time.temporal.Temporal;
 import java.util.List;
@@ -126,7 +125,55 @@ public class EvaluationService {
 	 */
 	public int getScrabbleScore(String string) {
 		// TODO Write an implementation for this method declaration
-		return 0;
+		int score = 0;
+		
+		for(int i=0; i < string.length(); i++) {
+			char letter = string.charAt(i);
+			switch(letter) {
+				case 'a':
+				case 'e':
+				case 'i':
+				case 'o':
+				case 'u':
+				case 'l':
+				case 'n':
+				case 'r':
+				case 's':
+				case 't':
+					score += 1;
+					break;
+				case 'd':
+				case 'g':
+					score += 2;
+					break;
+				case 'b':
+				case 'c':
+				case 'm':
+				case 'p':
+					score += 3;
+					break;
+				case 'f':
+				case 'h':
+				case 'v':
+				case 'w':
+				case 'y':
+					score += 4;
+					break;
+				case 'k':
+					score += 5;
+					break;
+				case 'j':
+				case 'x':
+					score += 8;
+					break;
+				case 'q':
+				case 'z':
+					score += 10;
+					break;
+			}
+		}
+		
+		return score;
 	}
 
 	/**
@@ -429,7 +476,7 @@ public class EvaluationService {
 	}
 
 	/**
-	 * 16. Determine if a sentence is a pangram. A pangram (Greek: παν γράμμα, pan
+	 * 16. Determine if a sentence is a pangram. A pangram (Greek: Ï€Î±Î½ Î³Ï�Î¬Î¼Î¼Î±, pan
 	 * gramma, "every letter") is a sentence using every letter of the alphabet at
 	 * least once. The best known English pangram is:
 	 * 
@@ -547,7 +594,105 @@ public class EvaluationService {
 	 */
 	public int solveWordProblem(String string) {
 		// TODO Write an implementation for this method declaration
-		//might use split() here
+		String[] twoNums = string.split(" ");
+		int num1 = Integer.parseInt(twoNums[2]);
+		String numberString = "";
+		
+		if (twoNums[3].equals("plus")) {
+			for (int i=0; i<twoNums[4].length(); i++) {
+				switch(twoNums[4].charAt(i)) {
+				case '0':
+				case '1':
+				case '2':
+				case '3':
+				case '4':
+				case '5':
+				case '6':
+				case '7':
+				case '8':
+				case '9':
+				case '-':
+					numberString += twoNums[4].charAt(i);
+					break;
+				default:
+				}
+			}
+			int num2 = Integer.parseInt(numberString);
+			int sum = num1+num2;
+			return sum;
+		}
+		
+		else if (twoNums[3].equals("minus")) {
+			for (int i=0; i<twoNums[4].length(); i++) {
+				switch(twoNums[4].charAt(i)) {
+				case '0':
+				case '1':
+				case '2':
+				case '3':
+				case '4':
+				case '5':
+				case '6':
+				case '7':
+				case '8':
+				case '9':
+				case '-':
+					numberString += twoNums[4].charAt(i);
+					break;
+				default:
+				}
+			}
+			int num2 = Integer.parseInt(numberString);
+			int difference = num1-num2;
+			return difference;
+		}
+		
+		else if (twoNums[3].equals("multiplied")) {
+			for (int i=0; i<twoNums[5].length(); i++) {
+				switch(twoNums[5].charAt(i)) {
+				case '0':
+				case '1':
+				case '2':
+				case '3':
+				case '4':
+				case '5':
+				case '6':
+				case '7':
+				case '8':
+				case '9':
+				case '-':
+					numberString += twoNums[5].charAt(i);
+					break;
+				default:
+				}
+			}
+			int num2 = Integer.parseInt(numberString);
+			int product = num1*num2;
+			return product;
+		}
+		
+		else if (twoNums[3].equals("divided")) {
+			for (int i=0; i<twoNums[5].length(); i++) {
+				switch(twoNums[5].charAt(i)) {
+				case '0':
+				case '1':
+				case '2':
+				case '3':
+				case '4':
+				case '5':
+				case '6':
+				case '7':
+				case '8':
+				case '9':
+				case '-':
+					numberString += twoNums[5].charAt(i);
+					break;
+				default:
+				}
+			}
+			int num2 = Integer.parseInt(numberString);
+			int quotient = num1/num2;
+			return quotient;
+		}
 		return 0;
 	}
 
