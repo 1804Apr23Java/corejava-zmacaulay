@@ -247,7 +247,16 @@ public class EvaluationService {
 	 */
 	public String cleanPhoneNumber(String string) {
 		// TODO Write an implementation for this method declaration
-		return null;
+		String number = "";
+		for(int i=0; i<string.length(); i++) {
+			char digit = string.charAt(i);
+			if(digit == '-' || digit == ' ' || digit == '(' || digit == ')' || digit == '.') {
+				continue;
+			}
+			number = number + string.charAt(i);
+			
+		}
+		return number;
 	}
 
 	/**
